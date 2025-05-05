@@ -17,9 +17,10 @@ export class Collection {
     }
 
     async fetch(): Promise<void> {
-        const response = await axios.get(this.rootURL);
+        const response = await axios.get(this.rootURL) as AxiosResponse;
         response.data.forEach((value: UserProps) => {
             this.models.push(User.build(value));
         });
+        this.trigger('change');
     }
 }
