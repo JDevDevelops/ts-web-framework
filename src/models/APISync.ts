@@ -4,7 +4,7 @@ interface hasID {
     id?: string;
 }
 
-export class Sync<T extends hasID> {
+export class APISync<T extends hasID> {
 
     constructor(public rootURL: string) {}
 
