@@ -1,6 +1,8 @@
+import { User } from '../models/User';
+
 export class UserForm {
 
-    constructor(public parent: Element) {}
+    constructor(public parent: Element, public model: User) {}
 
     eventMap(): { [key: string]: () => void} {
         return {
@@ -21,14 +23,17 @@ export class UserForm {
     }
 
     onButtonClick(): void {
-        console.log('Button Clicked!');
+        const input = document.getElementById('userInput') as HTMLInputElement;
+        console.log(`User input: ${input.value}`);
     }
 
     template(): string {
         return `
             <div>
                 <h2>User Form</h2>
-                <input />
+                <div>User Name: ${this.model.get('name')}</div>
+                <div>User Age: ${this.model.get('age')}</div>
+                <input id="userInput" />
                 <button>Click Me!</button>
             </div>
         `;

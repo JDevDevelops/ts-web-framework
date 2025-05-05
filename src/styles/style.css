@@ -72,6 +72,7 @@ button {
 body {
     background-color: #0066ff;
     background: radial-gradient(circle,rgba(87, 199, 133, 1) 0%, rgba(42, 123, 155, 1) 76%);
+    font-family: "Barlow Semi Condensed", Verdana, Geneva, Tahoma, sans-serif;
     color: #fff;
     height: 100vh;
     display: flex;
@@ -84,7 +85,6 @@ main {
 }
 
 h1, h2, h3 {
-  font-family: "Barlow Semi Condensed", Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
@@ -94,12 +94,17 @@ h1 {
 }
 
 button {
-  background-color: rgba(42, 123, 155, 1);
+  background-color: rgb(204, 2, 160);
   padding: .5rem 1rem;
   border-radius: .25rem;
+  letter-spacing: .11rem;
 
   &:active {
     scale: 1.01;
     box-shadow: 1px 1px 6px #666;
   }
+}
+
+input {
+  color: #444;
 }
