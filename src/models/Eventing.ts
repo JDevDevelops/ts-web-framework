@@ -1,6 +1,8 @@
+import { IEvents } from "./Model";
+
 export type Callback = () => void;
 
-export class Eventing {
+export class Eventing implements IEvents {
 
     private events: { [key: string]: Callback[] } = {};
 
@@ -17,6 +19,6 @@ export class Eventing {
 
         handlers.forEach(callback => {
             callback();
-        })
+        });
     }
 }

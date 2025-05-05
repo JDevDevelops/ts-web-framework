@@ -1,10 +1,11 @@
 import axios, { AxiosPromise } from 'axios';
+import { ISync } from './Model';
 
 interface hasID {
     id?: string;
 }
 
-export class APISync<T extends hasID> {
+export class APISync<T extends hasID> implements ISync<T> {
 
     constructor(public rootURL: string) {}
 
