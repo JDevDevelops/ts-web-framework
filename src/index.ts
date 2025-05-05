@@ -1,10 +1,7 @@
-import { Collection } from './models/Collection';
-import { User, UserProps } from './models/User';
+import { UserForm } from "./views/UserForm";
 
-const rootURL = 'http://localhost:3000/users';
+const userForm = new UserForm(
+    document.querySelector('main') as Element
+);
 
-const collection = User.buildCollection();
-
-collection.on('change', () => console.log(collection));
-
-collection.fetch();
+userForm.render();
