@@ -1,4 +1,6 @@
 import { View } from "./View";
+import { UserShow } from './UserShow';
+import { UserForm } from './UserForm';
 import { User, UserProps } from '../models/User';
 
 export class UserEdit extends View<User, UserProps> {
@@ -8,6 +10,11 @@ export class UserEdit extends View<User, UserProps> {
             userDetails: '.userDetails',
             userForm: '.userForm'
         }
+    }
+
+    onRender(): void {
+        const userShow = new UserShow(this.regions.userShow, this.model).render();
+        const userForm = new UserForm(this.regions.userForm, this.model).render();
     }
 
     get template(): string {
