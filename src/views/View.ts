@@ -1,4 +1,6 @@
 import { User } from '../models/User';
+import { UserShow } from './UserShow';
+import { UserForm } from './UserForm';
 import { Model, hasID } from '../models/Model';
 
 export abstract class View<T extends Model<K>, K extends hasID> {
@@ -50,6 +52,8 @@ export abstract class View<T extends Model<K>, K extends hasID> {
         }
     }
 
+    onRender(): void {}
+
     render(): void {
         this.parent.innerHTML = '';
 
@@ -58,6 +62,8 @@ export abstract class View<T extends Model<K>, K extends hasID> {
 
         this.bindEvents(templateElement.content);
         this.mapRegions(templateElement.content);
+
+        this.onRender();
 
         this.parent.append(templateElement.content);
     }

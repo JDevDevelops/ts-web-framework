@@ -29,11 +29,6 @@ export class UserForm extends View<User, UserProps> {
 
     get template(): string {
         return `
-            <div class="user">
-                <h2>User Data</h2>
-                <div><b>Name</b>: ${this.model.get('name')}</div>
-                <div><b>Age</b>: ${this.model.get('age')}</div>
-            </div>
             <div class="input">
                 <input id="userNameInput" />
             </div>
