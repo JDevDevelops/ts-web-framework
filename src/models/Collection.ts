@@ -19,11 +19,12 @@ export class Collection<T, K> implements IEvents {
         return this.events.trigger;
     }
 
-    async fetch(): Promise<void> {
-        const response = await axios.get(this.rootURL) as AxiosResponse;
-        response.data.forEach((value: K) => {
-            this.models.push(this.deserialize(value));
-        });
-        this.trigger('change');
+    fetch(): void {
+        axios.get(this.rootURL).then( response => {
+            response.data.forEach((value: K) => {
+                this.models.push(this.deserialize(value));
+            });
+            this.trigger('change');
+        })
     }
 }
